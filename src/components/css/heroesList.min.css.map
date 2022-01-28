@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,WAAW,AAAC,CACR,YAAY,CAAE,MAAM,CACvB,AAED,AAAA,WAAW,AAAC,CACR,OAAO,CAAE,CAAC,CACb,AACD,AAAA,kBAAkB,AAAC,CACf,OAAO,CAAE,CAAC,CACV,UAAU,CAAE,qBAAqB,CACpC,AACD,AAAA,UAAU,AAAC,CACP,OAAO,CAAE,CAAC,CACb,AACD,AAAA,iBAAiB,AAAC,CACd,OAAO,CAAE,CAAC,CACV,UAAU,CAAE,qBAAqB,CACpC",
+    "sources": [
+        "../heroesList/heroesList.scss"
+    ],
+    "names": [],
+    "file": "heroesList.min.css"
+}

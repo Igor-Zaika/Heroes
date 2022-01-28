@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,MAAM,AAAC,CACH,KAAK,CAAE,GAAG,CACV,UAAU,CAAE,IAAI,CACnB",
+    "sources": [
+        "../heroesAddForm/heroesAddForm.scss"
+    ],
+    "names": [],
+    "file": "heroesAddForm.min.css"
+}
