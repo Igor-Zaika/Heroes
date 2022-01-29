@@ -2,8 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import { useEffect } from "react";
 import classNames from 'classnames';
-import { heroesActiveFiltered} from '../heroesList/filtersSlice';
-import { fetchFilters} from '../../actions/index';
+import { heroesActiveFiltered, fetchFilters} from './filtersSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Spinner from "../spinner/Spinner";
