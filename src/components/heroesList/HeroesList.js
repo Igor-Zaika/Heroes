@@ -4,7 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import {CSSTransition, TransitionGroup} from 'react-transition-group';
 import { createSelector } from 'reselect';
 
-import { fetchHeroes, heroesDeleted} from '../../actions';
+import { fetchHeroes} from '../../actions';
+import { heroesDeleted } from './heroesSlice';
 import HeroesListItem from "../heroesListItem/HeroesListItem";
 import Spinner from '../spinner/Spinner';
 
@@ -71,7 +72,7 @@ const HeroesList = () => {
 
     const elements = renderHeroesList(filteredHeroes);
     return (
-        <TransitionGroup component='ul'>
+        <TransitionGroup component="ul">
             {elements}
         </TransitionGroup>
     )
