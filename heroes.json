@@ -13,34 +13,45 @@
       "element": "wind"
     },
     {
-      "id": "ca6ef8a6-8380-4e5a-ab64-52d33ad5a447",
+      "id": "af259025-3e8e-47b8-b318-74f483b9528d",
       "name": "Leonid Lee",
-      "description": "efef",
+      "description": "hs",
+      "element": ""
+    },
+    {
+      "id": "df0c4861-9626-416a-9374-1f76dfc5ba26",
+      "name": "heheh",
+      "description": "hewh",
       "element": "earth"
     }
   ],
   "filters": [
     {
+      "id": "all",
       "name": "all",
       "label": "Все",
       "className": "btn-outline-dark"
     },
     {
+      "id": "fire",
       "name": "fire",
       "label": "Огонь",
       "className": "btn-danger"
     },
     {
+      "id": "water",
       "name": "water",
       "label": "Вода",
       "className": "btn-primary"
     },
     {
+      "id": "wind",
       "name": "wind",
       "label": "Ветер",
       "className": "btn-success"
     },
     {
+      "id": "earth",
       "name": "earth",
       "label": "Земля",
       "className": "btn-secondary"

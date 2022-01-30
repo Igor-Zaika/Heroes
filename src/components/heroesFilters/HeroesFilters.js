@@ -2,9 +2,9 @@ import { v4 as uuidv4 } from 'uuid';
 
 import { useEffect } from "react";
 import classNames from 'classnames';
-import { heroesActiveFiltered, fetchFilters} from './filtersSlice';
+import { filtersChanged, fetchFilters, selectAll } from './filtersSlice';
 import { useDispatch, useSelector } from 'react-redux';
-
+import store from '../../store';
 import Spinner from "../spinner/Spinner";
 import { useHttp } from "../../hooks/http.hook";
 
@@ -18,7 +18,8 @@ import { useHttp } from "../../hooks/http.hook";
 
 const HeroesFilters = () => {
 
-    const {filters, filtersLoadingStatus, activeFilter} = useSelector(state => state.filters);
+    const {filtersLoadingStatus, activeFilter} = useSelector(state => state.filters);
+    const filters = selectAll(store.getState());
     const dispatch = useDispatch();
     const {request} = useHttp();
 
@@ -45,7 +46,7 @@ const HeroesFilters = () => {
 
             return <button key={uuidv4()}  
                             className={btnClass}
-                            onClick={() => dispatch(heroesActiveFiltered(name))}
+                            onClick={() => dispatch(filtersChanged(name))}
                             >{label}</button>
         })
     }

@@ -4,8 +4,9 @@ import * as Yup from 'yup';
 import { v4 as uuidv4 } from 'uuid';
 import {useHttp} from '../../hooks/http.hook';
 import { useSelector, useDispatch } from 'react-redux';
-import { heroesCreated } from '../heroesList/heroesSlice';
-
+import { heroCreated } from '../heroesList/heroesSlice';
+import store from '../../store';
+import { selectAll } from '../heroesFilters/filtersSlice';
 import './heroesAddForm.scss';
 
 // Задача для этого компонента:
@@ -19,7 +20,8 @@ import './heroesAddForm.scss';
 // данных из фильтров
 
 const HeroesAddForm = () => {
-    const {filters, filtersLoadingStatus} = useSelector(state => state.filters);
+    const {filtersLoadingStatus} = useSelector(state => state.filters);
+    const filters = selectAll(store.getState());
     const dispatch = useDispatch();
     const {request} = useHttp();
 
@@ -61,7 +63,7 @@ const HeroesAddForm = () => {
             onSubmit={(heroes, {resetForm}) => {
                 heroes.id = uuidv4();
                 request(`http://localhost:3001/heroes`, "POST", JSON.stringify(heroes))
-                    .then(dispatch(heroesCreated(heroes)))
+                    .then(dispatch(heroCreated(heroes)))
                     .catch(err => console.log(err))
 
                 setTimeout(() => resetForm({
