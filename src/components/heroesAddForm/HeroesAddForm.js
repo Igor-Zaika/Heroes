@@ -2,11 +2,12 @@
 import {Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from 'yup';
 import { v4 as uuidv4 } from 'uuid';
-import {useHttp} from '../../hooks/http.hook';
-import { useSelector, useDispatch } from 'react-redux';
-import { heroCreated } from '../heroesList/heroesSlice';
+
+import { useSelector} from 'react-redux';
+
 import store from '../../store';
 import { selectAll } from '../heroesFilters/filtersSlice';
+import { useCreateHeroMutation } from '../../api/apiSlice';
 import './heroesAddForm.scss';
 
 // Задача для этого компонента:
@@ -20,10 +21,11 @@ import './heroesAddForm.scss';
 // данных из фильтров
 
 const HeroesAddForm = () => {
+
+    const [createHero] = useCreateHeroMutation();
+
     const {filtersLoadingStatus} = useSelector(state => state.filters);
     const filters = selectAll(store.getState());
-    const dispatch = useDispatch();
-    const {request} = useHttp();
 
     const renderFilters = (filters, status) => {
         if (status === "loading") {
@@ -62,9 +64,7 @@ const HeroesAddForm = () => {
             })}
             onSubmit={(heroes, {resetForm}) => {
                 heroes.id = uuidv4();
-                request(`http://localhost:3001/heroes`, "POST", JSON.stringify(heroes))
-                    .then(dispatch(heroCreated(heroes)))
-                    .catch(err => console.log(err))
+                createHero(heroes).unwrap();
 
                 setTimeout(() => resetForm({
                     id: '',
